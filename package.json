@@ -6,8 +6,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "test": "turbo test",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint-staged": "lint-staged"
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
@@ -26,12 +25,6 @@
   },
   "engines": {
     "node": ">=18"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run lint",
-      "prettier --write"
-    ]
   },
   "packageManager": "npm@10.5.0",
   "workspaces": [

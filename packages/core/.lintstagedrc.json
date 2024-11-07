@@ -1,0 +1,3 @@
+{
+    "*.ts": [ "eslint --config eslint.config.mjs --fix" ]
+}
