@@ -9,3 +9,5 @@ interface Formwork {
    */
   getAreaofFormwork(): number;
 }
+
+export default Formwork;

@@ -26,7 +26,7 @@
     "vitest": "^2.1.4"
   },
   "lint-staged": {
-    "packages/core/**/*.ts": "npm run lint:packages"
+    "packages/core/**/*.ts": "npm run lint:package-core"
   },
   "engines": {
     "node": ">=18"
