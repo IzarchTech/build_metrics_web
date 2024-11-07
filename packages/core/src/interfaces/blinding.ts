@@ -1,7 +1,7 @@
 /**
  * Blinding interface
  */
-interface Blinding{
+interface Blinding {
   /**
    * Get the volume of the blinding
    *
