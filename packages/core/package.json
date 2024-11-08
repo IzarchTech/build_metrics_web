@@ -1,7 +1,7 @@
 {
   "name": "@repo/core",
   "version": "0.0.0",
-  "description": "BuildMetrics is a robust tool designed for civil engineers and quantity surveyors to estimate construction material quantities accurately",
+  "description": "Core library for BuildMetrics",
   "main": "index.js",
   "scripts": {
     "test": "vitest",

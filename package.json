@@ -1,5 +1,6 @@
 {
   "name": "build_metrics_web",
+  "description": "BuildMetrics is a robust tool designed for civil engineers and quantity surveyors to estimate construction material quantities accurately",
   "private": true,
   "scripts": {
     "build": "turbo build",
