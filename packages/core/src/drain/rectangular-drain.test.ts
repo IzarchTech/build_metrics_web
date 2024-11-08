@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import RectangularDrain from "./rectangularDrain";
+import RectangularDrain from "./rectangular-drain";
 
 describe("Rectangular Drain", () => {
   const data = [
