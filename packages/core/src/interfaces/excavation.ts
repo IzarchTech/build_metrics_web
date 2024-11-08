@@ -9,3 +9,5 @@ interface Excavation {
    */
   getVolumeOfExcavation(): number;
 }
+
+export default Excavation;

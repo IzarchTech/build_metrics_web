@@ -9,3 +9,5 @@ interface Concrete {
    */
   getVolumeOfConcrete(): number;
 }
+
+export default Concrete;
