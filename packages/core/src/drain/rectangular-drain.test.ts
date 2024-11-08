@@ -8,85 +8,115 @@ describe("Rectangular Drain", () => {
     new RectangularDrain(1.5, 1.5, 1.0, 0.15, 0.05, 0.225),
   ];
 
-  it("Calculates drain depth", () => {
-    const expectedResult = [0.83, 1.65];
+  it.each(
+    [0.83, 1.65].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.drainDepth).approximately(expectedResult[idx] ?? 0, 0.01);
-    });
+      return {
+        value: drain.drainDepth,
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates drain depth [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.01);
   });
 
-  it("Calculates drain width", () => {
-    const expectedResult = [1.05, 1.8];
+  it.each(
+    [1.05, 1.8].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.drainWidth).approximately(expectedResult[idx] ?? 0, 0.01);
-    });
+      return {
+        value: drain.drainWidth,
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates drain width [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.01);
   });
 
-  it("Calculates excavation width", () => {
-    const expectedResult = [1.5, 2.25];
+  it.each(
+    [1.5, 2.25].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.excavationWidth).approximately(
-        expectedResult[idx] ?? 0,
-        0.01,
-      );
-    });
+      return {
+        value: drain.excavationWidth,
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates excavation width [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.01);
   });
 
-  it("Calculates excavation depth", () => {
-    const expectedResult = [0.88, 1.7];
+  it.each(
+    [0.88, 1.7].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.excavationDepth).approximately(
-        expectedResult[idx] ?? 0,
-        0.01,
-      );
-    });
+      return {
+        value: drain.excavationDepth,
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates excavation depth [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.01);
   });
 
-  it("Calculates volume of excavation", () => {
-    const expectedResult = [1.313, 3.825];
+  it.each(
+    [1.313, 3.825].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.getVolumeOfExcavation()).approximately(
-        expectedResult[idx] ?? 0,
-        0.001,
-      );
-    });
+      return {
+        value: drain.getVolumeOfExcavation(),
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates volume of excavation [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.001);
   });
 
-  it("Calculates volume of blinding", () => {
-    const expectedResult = [0.075, 0.113];
+  it.each(
+    [0.075, 0.113].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.getVolumeofBlinding()).approximately(
-        expectedResult[idx] ?? 0,
-        0.001,
-      );
-    });
+      return {
+        value: drain.getVolumeofBlinding(),
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates volume of blinding [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.001);
   });
 
-  it("Calculates area of form-work", () => {
-    const expectedResult = [2.85, 6.3];
+  it.each(
+    [2.85, 6.3].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.getAreaofFormwork()).approximately(
-        expectedResult[idx] ?? 0,
-        0.001,
-      );
-    });
+      return {
+        value: drain.getAreaofFormwork(),
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates area of form-work [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.001);
   });
 
-  it("Calculates volume of concrete", () => {
-    const expectedResult = [0.51, 0.72];
+  it.each(
+    [0.51, 0.72].map((expectedResult, index) => {
+      const drain = data[index]!;
 
-    data.forEach((drain, idx) => {
-      expect(drain.getVolumeOfConcrete()).approximately(
-        expectedResult[idx] ?? 0,
-        0.01,
-      );
-    });
+      return {
+        value: drain.getVolumeOfConcrete(),
+        expectedResult,
+        name: `${drain.width} x ${drain.depth}`,
+      };
+    }),
+  )("Calculates volume of concrete [$name]", ({ value, expectedResult }) => {
+    expect(value).approximately(expectedResult, 0.01);
   });
 });
