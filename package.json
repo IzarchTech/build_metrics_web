@@ -6,6 +6,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "lint:ui": "eslint apps/build-metric-app --fix",
+    "lint-staged:ui": "lint-staged --config apps/build-metric-app/.lintstagedrc.json",
     "lint:package-core": "eslint -c packages/core/eslint.config.mjs packages/core",
     "lint-staged:package-core": "lint-staged --config packages/core/.lintstagedrc.json",
     "test": "turbo test",
@@ -27,7 +29,8 @@
     "vitest": "^2.1.4"
   },
   "lint-staged": {
-    "packages/core/**/*.ts": "npm run lint:package-core"
+    "packages/core/**/*.ts": "npm run lint:package-core",
+    "apps/build-metric-app/**/*.{ts,tsx}": "npm run lint:ui"
   },
   "engines": {
     "node": ">=18"
