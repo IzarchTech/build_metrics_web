@@ -21,7 +21,12 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider>
-          <Box component="main" w="100vw" h="100vh">
+          <Box
+            component="main"
+            w="100vw"
+            h="100vh"
+            style={{ overflowY: "auto" }}
+          >
             {children}
           </Box>
         </MantineProvider>

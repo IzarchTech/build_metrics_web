@@ -2,7 +2,9 @@
   "name": "@repo/core",
   "version": "0.0.0",
   "description": "Core library for BuildMetrics",
-  "main": "index.js",
+  "exports": {
+    ".": "./index.ts"
+  },
   "scripts": {
     "test": "vitest",
     "lint": "eslint . --fix --config eslint.config.mjs"

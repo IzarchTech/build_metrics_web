@@ -1,9 +1,10 @@
-import { Center, Title } from "@mantine/core";
+import Drain from "@/components/drain/drain";
+import { Center } from "@mantine/core";
 
 export default function Home() {
   return (
     <Center h="100%">
-      <Title>BuildMetric</Title>
+      <Drain />
     </Center>
   );
 }
