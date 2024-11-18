@@ -2,7 +2,9 @@ import { Button, NumberInput, Stack } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { RectangularDrain as RectangularDrainImpl } from "@repo/core";
 import { z } from "zod";
+import rectangularDrainImg from "./rectangular-drain.png";
 import { DrainImpl } from "./drain";
+import Image from "next/image";
 
 const rectangularDrainSchema = z.object({
   width: z.number().min(0.01, "Width should be greater than 0.0"),
@@ -17,9 +19,9 @@ const rectangularDrainSchema = z.object({
 
 function RectangularDrain({
   onAnalyse,
-}: {
+}: Readonly<{
   onAnalyse: (drainImpl: DrainImpl) => void;
-}) {
+}>) {
   const form = useForm({
     mode: "uncontrolled",
     validate: zodResolver(rectangularDrainSchema),
@@ -58,11 +60,11 @@ function RectangularDrain({
   return (
     <form onSubmit={handleSubmit}>
       <Stack>
+        <Image src={rectangularDrainImg} alt="rectangular drain" />
         <NumberInput
           label="w"
           description="Width of the drain"
-          decimalScale={3}
-          min={0.1}
+          min={0.01}
           step={0.01}
           withAsterisk
           allowDecimal
@@ -72,8 +74,7 @@ function RectangularDrain({
         <NumberInput
           label="d"
           description="Depth of the drain"
-          decimalScale={3}
-          min={0.1}
+          min={0.01}
           step={0.01}
           withAsterisk
           allowDecimal
@@ -83,8 +84,7 @@ function RectangularDrain({
         <NumberInput
           label="t"
           description="Thickness of the drain"
-          decimalScale={3}
-          min={0.1}
+          min={0.01}
           step={0.01}
           withAsterisk
           allowDecimal
@@ -94,8 +94,7 @@ function RectangularDrain({
         <NumberInput
           label="s"
           description="Span of the drain"
-          decimalScale={3}
-          min={0.1}
+          min={0.01}
           step={0.01}
           withAsterisk
           allowDecimal
@@ -110,8 +109,7 @@ function RectangularDrain({
             </>
           }
           description="Blinding thickness"
-          decimalScale={3}
-          min={0.1}
+          min={0.01}
           step={0.01}
           withAsterisk
           allowDecimal
@@ -126,8 +124,7 @@ function RectangularDrain({
             </>
           }
           description="Working allowance"
-          decimalScale={3}
-          min={0.1}
+          min={0.01}
           step={0.01}
           allowDecimal
           key={form.key("workingAllowance")}

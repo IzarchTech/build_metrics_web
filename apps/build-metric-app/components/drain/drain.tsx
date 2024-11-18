@@ -33,11 +33,11 @@ function DrainTypeSelector({
   drainType,
   setDrainType,
   handleNextStep,
-}: {
+}: Readonly<{
   drainType: DrainType | null;
   setDrainType: Dispatch<SetStateAction<DrainType | null>>;
   handleNextStep: () => void;
-}) {
+}>) {
   return (
     <Stack justify="space-between" mih={rem(300)}>
       <Radio.Group onChange={(value) => setDrainType(value as DrainType)}>
@@ -75,14 +75,6 @@ export default function Drain() {
   const [drainType, setDrainType] = useState<DrainType | null>(null);
   const [drainImpl, setDrainImpl] = useState<DrainImpl | null>(null);
 
-  const handleStepClick = (step: number) => {
-    if (step > 0 && !drainType) return;
-
-    if (step > 1 && !drainImpl) return;
-
-    setActiveStep(step);
-  };
-
   const handleNextStep = () => {
     if (activeStep < 2) {
       setActiveStep((current) => current + 1);
@@ -95,13 +87,8 @@ export default function Drain() {
   };
 
   return (
-    <Card
-      shadow="md"
-      radius="md"
-      w={{ base: rem(315), sm: rem(500), lg: rem(700) }}
-      mih={rem(400)}
-    >
-      <Stepper active={activeStep} onStepClick={handleStepClick}>
+    <Card shadow="md" radius="md" mih={rem(400)}>
+      <Stepper active={activeStep}>
         <Stepper.Step label="Drain type" description="Choose drain">
           <DrainTypeSelector
             drainType={drainType}
