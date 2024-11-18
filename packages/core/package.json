@@ -2,8 +2,15 @@
   "name": "@repo/core",
   "version": "0.0.0",
   "description": "Core library for BuildMetrics",
-  "main": "index.js",
+  "exports": {
+    "./drain/rectangular-drain": {
+      "types": "./src/drain/rectangular-drain.ts",
+      "default": "./dist/drain/rectangular-drain.js"
+    }
+  },
   "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
     "test": "vitest",
     "lint": "eslint . --fix --config eslint.config.mjs"
   },
