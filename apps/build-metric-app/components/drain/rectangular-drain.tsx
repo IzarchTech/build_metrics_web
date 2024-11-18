@@ -1,6 +1,6 @@
 import { Button, NumberInput, Stack } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
-import { RectangularDrain as RectangularDrainImpl } from "@repo/core";
+import RectangularDrain from "@repo/core/drain/rectangular-drain";
 import { z } from "zod";
 import rectangularDrainImg from "./rectangular-drain.png";
 import { DrainImpl } from "./drain";
@@ -17,7 +17,7 @@ const rectangularDrainSchema = z.object({
   workingAllowance: z.number().nullable(),
 });
 
-function RectangularDrain({
+function RectangularDrainComponent({
   onAnalyse,
 }: Readonly<{
   onAnalyse: (drainImpl: DrainImpl) => void;
@@ -44,7 +44,7 @@ function RectangularDrain({
       blindingThickness,
       workingAllowance,
     }) => {
-      const rd = new RectangularDrainImpl(
+      const rd = new RectangularDrain(
         width,
         depth,
         span,
@@ -137,4 +137,4 @@ function RectangularDrain({
   );
 }
 
-export default RectangularDrain;
+export default RectangularDrainComponent;

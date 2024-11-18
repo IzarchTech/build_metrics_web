@@ -12,13 +12,13 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import RectangularDrain from "./rectangular-drain";
+import RectangularDrainComponent from "./rectangular-drain";
 import { Dispatch, SetStateAction, useState } from "react";
-import { RectangularDrain as RectangularDrainImpl } from "@repo/core";
+import RectangularDrain from "@repo/core/drain/rectangular-drain";
 
 export type DrainType = "rectangular";
 
-export type DrainImpl = RectangularDrainImpl;
+export type DrainImpl = RectangularDrain;
 
 const DRAIN_TYPES: { name: string; description: string; id: DrainType }[] = [
   {
@@ -102,7 +102,7 @@ export default function Drain() {
           description="Input all parameters"
         >
           {drainType === "rectangular" && (
-            <RectangularDrain onAnalyse={handleAnalysis} />
+            <RectangularDrainComponent onAnalyse={handleAnalysis} />
           )}
         </Stepper.Step>
 
