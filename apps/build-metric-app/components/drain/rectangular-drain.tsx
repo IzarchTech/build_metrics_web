@@ -1,10 +1,10 @@
+import { z } from "zod";
 import { Button, NumberInput, Stack } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
+import Image from "next/image";
 import RectangularDrain from "@repo/core/drain/rectangular-drain";
-import { z } from "zod";
 import rectangularDrainImg from "./rectangular-drain.png";
 import { DrainImpl } from "./drain";
-import Image from "next/image";
 
 const rectangularDrainSchema = z.object({
   width: z.number().min(0.01, "Width should be greater than 0.0"),
@@ -124,7 +124,7 @@ function RectangularDrainComponent({
             </>
           }
           description="Working allowance"
-          min={0.01}
+          min={0}
           step={0.01}
           allowDecimal
           key={form.key("workingAllowance")}
