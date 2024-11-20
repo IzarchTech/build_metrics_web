@@ -79,7 +79,7 @@ class RectangularDrain implements Excavation, Blinding, Formwork, Concrete {
 
     if (depth <= 0.0) throw new Error("depth should be greater than 0.0");
 
-    if (span <= 0.0) throw new Error("dpan should be greater than 0.0");
+    if (span <= 0.0) throw new Error("span should be greater than 0.0");
 
     if (thickness <= 0.0)
       throw new Error("thickness should be greater than 0.0");
