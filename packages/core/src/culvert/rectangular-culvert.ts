@@ -133,7 +133,7 @@ class RectangularCulvert implements Excavation, Blinding, Formwork, Concrete {
     const innerFace = (2 * this.depth + this.width) * this.span;
     const externalFace = 2 * this.culvertDepth * this.span;
     const fluidFlowFace =
-      2 * (this.#getAreaOfFluidFlowFace() - this.#getAreaOfHollowSection());
+      2 * (this.getAreaOfFluidFlowFace() - this.getAreaOfHollowSection());
     return innerFace + externalFace + fluidFlowFace;
   }
 
@@ -143,7 +143,7 @@ class RectangularCulvert implements Excavation, Blinding, Formwork, Concrete {
   getVolumeOfConcrete(): number {
     return (
       this.span *
-      (this.#getAreaOfFluidFlowFace() - this.#getAreaOfHollowSection())
+      (this.getAreaOfFluidFlowFace() - this.getAreaOfHollowSection())
     );
   }
 
@@ -154,7 +154,7 @@ class RectangularCulvert implements Excavation, Blinding, Formwork, Concrete {
    *
    * @returns Area of hollow section
    */
-  #getAreaOfHollowSection(): number {
+  private getAreaOfHollowSection(): number {
     return this.noOfCells * this.width * this.depth;
   }
 
@@ -163,7 +163,7 @@ class RectangularCulvert implements Excavation, Blinding, Formwork, Concrete {
    *
    * @returns Area of fluid flow face
    */
-  #getAreaOfFluidFlowFace(): number {
+  private getAreaOfFluidFlowFace(): number {
     return this.culvertWidth * this.culvertDepth;
   }
   //#endregion
