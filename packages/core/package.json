@@ -8,8 +8,8 @@
       "default": "./dist/drain/rectangular-drain.js"
     },
     "./culvert/rectangular-culvert": {
-      "types": "./src/culvert/culvert-culvert.ts",
-      "default": "./dist/culvert/culvert-culvert.js"
+      "types": "./src/culvert/rectangular-culvert.ts",
+      "default": "./dist/culvert/rectangular-culvert.js"
     }
   },
   "scripts": {

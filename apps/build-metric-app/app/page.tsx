@@ -1,5 +1,5 @@
-import Drain from "@/components/drain/drain";
+import Culvert from "@/components/culvert/culvert";
 
 export default function Home() {
-  return <Drain />;
+  return <Culvert />;
 }
