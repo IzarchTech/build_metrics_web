@@ -10,6 +10,10 @@
     "./culvert/rectangular-culvert": {
       "types": "./src/culvert/rectangular-culvert.ts",
       "default": "./dist/culvert/rectangular-culvert.js"
+    },
+    "./beam/rectangular-beam": {
+      "types": "./src/beam/rectangular-beam.ts",
+      "default": "./dist/beam/rectangular-beam.js"
     }
   },
   "scripts": {
