@@ -27,21 +27,22 @@ bun lint
 ```
 
 ## TODO
+
 1. Culvert
-     - [x] Rectangular
-     - [ ] Ring
+   - [x] Rectangular
+   - [ ] Ring
 2. Drain
-     - [x] Rectangular
-     - [ ] Trapezoidal
+   - [x] Rectangular
+   - [ ] Trapezoidal
 3. Wall
-     - [ ] Block
-     - [ ] Reinforced Concrete
+   - [ ] Block
+   - [ ] Reinforced Concrete
 4. Block
-     - [ ] Hollow
-     - [ ] Solid
-5. [ ] Beam 
+   - [ ] Hollow
+   - [ ] Solid
+5. [x] Beam
 6. Column
-    - [ ] Rectangular 
-    - [ ] Circular
+   - [x] Rectangular
+   - [ ] Circular
 7. [ ] Slab
-8. [ ] Footing 
+8. [ ] Footing
