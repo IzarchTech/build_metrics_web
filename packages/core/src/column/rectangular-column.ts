@@ -51,3 +51,5 @@ class RectangularColumn implements Formwork, Concrete {
     return 2 * this.height * (this.width + this.breadth);
   }
 }
+
+export default RectangularColumn;
