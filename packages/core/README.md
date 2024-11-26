@@ -43,6 +43,6 @@ bun lint
 5. [x] Beam
 6. Column
    - [x] Rectangular
-   - [ ] Circular
+   - [x] Circular
 7. [ ] Slab
 8. [ ] Footing

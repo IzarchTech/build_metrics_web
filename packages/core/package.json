@@ -14,6 +14,14 @@
     "./beam/rectangular-beam": {
       "types": "./src/beam/rectangular-beam.ts",
       "default": "./dist/beam/rectangular-beam.js"
+    },
+    "./column/rectangular-column": {
+      "types": "./src/column/rectangular-column.ts",
+      "default": "./dist/column/rectangular-column.js"
+    },
+    "./column/circular-column": {
+      "types": "./src/column/circular-column.ts",
+      "default": "./dist/column/circular-column.js"
     }
   },
   "scripts": {
