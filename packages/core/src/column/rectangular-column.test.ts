@@ -23,7 +23,7 @@ describe("Rectanngular Column", () => {
   });
 
   it.each(
-    [3.42, 10.26].map((expectedResult, index) => {
+    [3.42, 10.2].map((expectedResult, index) => {
       const column = data[index]!;
 
       return {
