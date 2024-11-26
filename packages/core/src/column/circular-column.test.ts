@@ -36,8 +36,8 @@ describe("Circular Column", () => {
 
   describe("Using diameter", () => {
     const data = [
-      CircularColumn.createCircularColumnWithDiameter(0.6, 3.8),
-      CircularColumn.createCircularColumnWithDiameter(0.9, 3.1),
+      CircularColumn.createWithDiameter(0.6, 3.8),
+      CircularColumn.createWithDiameter(0.9, 3.1),
     ];
 
     it.each(

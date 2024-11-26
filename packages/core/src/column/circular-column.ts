@@ -29,7 +29,7 @@ class CircularColumn implements Formwork, Concrete {
   }
 
   /**
-   * @description Lateral area only
+   * @remark Lateral area only
    * @inheritdoc
    */
   getAreaofFormwork(): number {
@@ -40,14 +40,11 @@ class CircularColumn implements Formwork, Concrete {
   /**
    * Create circular column with diameter
    *
-   * @param height Height of the column
    * @param diameter Diameter of the column
+   * @param height Height of the column
    * @returns Circular column with diameter
    */
-  static createCircularColumnWithDiameter(
-    diameter: number,
-    height: number,
-  ): CircularColumn {
+  static createWithDiameter(diameter: number, height: number): CircularColumn {
     if (diameter <= 0.0)
       throw new Error("diameter should not be less than 0.0");
     return new CircularColumn(diameter / 2, height);
