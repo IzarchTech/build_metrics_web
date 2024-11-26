@@ -45,8 +45,8 @@ class CircularColumn implements Formwork, Concrete {
    * @returns Circular column with diameter
    */
   static createCircularColumnWithDiameter(
-    height: number,
     diameter: number,
+    height: number,
   ): CircularColumn {
     if (diameter <= 0.0)
       throw new Error("diameter should not be less than 0.0");
