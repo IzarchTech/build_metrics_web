@@ -22,6 +22,10 @@
     "./column/circular-column": {
       "types": "./src/column/circular-column.ts",
       "default": "./dist/column/circular-column.js"
+    },
+    "./reinforcement/bar": {
+      "types": "./src/reinforcement/bar.ts",
+      "default": "./dist/reinforcement/bar.js"
     }
   },
   "scripts": {
