@@ -2,12 +2,13 @@
  * Bar size
  *
  * @remarks Unit: mm (millimeter)
- * @summary Extract from BS 4466
  */
 export type BarSize = 6 | 8 | 10 | 12 | 16 | 20 | 25 | 32 | 40;
 
 /**
  * Reinforcement bar
+ *
+ * @summary Extract from BS 4466
  */
 class Bar {
   /**
