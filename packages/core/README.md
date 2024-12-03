@@ -46,3 +46,4 @@ bun lint
    - [x] Circular
 7. [ ] Slab
 8. [ ] Footing
+9. [x] Reinforcement 
