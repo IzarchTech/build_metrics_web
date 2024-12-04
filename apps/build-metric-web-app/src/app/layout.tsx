@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Jura } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -11,6 +12,13 @@ export const metadata: Metadata = {
                 and a robust suite of features to streamline project planning and execution.`,
 };
 
+const bodyFont = Jura({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
+  weight: ["300", "500", "700"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,7 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("antialiased")}>
+      <body
+        className={cn(
+          "antialiased h-screen bg-background text-foreground",
+          bodyFont.variable,
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
