@@ -4,7 +4,7 @@ import db from "@/lib/db";
 import { useRouter } from "next/navigation";
 import { v7 as uuid } from "uuid";
 import { useState } from "react";
-import MenuButton from "./menu-button";
+import MenuButton from "@/components/ui/menu-button";
 import { File } from "lucide-react";
 
 /**
@@ -50,7 +50,7 @@ function NewProjectButton() {
 
   return (
     <MenuButton
-      text="New Project"
+      text="New"
       onClick={createNewProject}
       render={() => (
         <File className="size-6 group-hover:fill-[#E2E2E2] group-hover:dark:fill-yellow-200 group-hover:dark:stroke-yellow-200 group-hover:stroke-[#E2E2E2] transition-all duration-300 ease-linear delay-150" />

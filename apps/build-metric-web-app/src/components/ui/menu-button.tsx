@@ -1,11 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-type MenuButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  text: string;
-  render?: () => React.ReactNode;
-};
+type MenuButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonProps & {
+    text: string;
+    render?: () => React.ReactNode;
+  };
 
 function MenuButton({ render, text, ...props }: Readonly<MenuButtonProps>) {
   return (
