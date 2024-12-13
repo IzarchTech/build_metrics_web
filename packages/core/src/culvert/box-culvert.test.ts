@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import RectangularCulvert from "./rectangular-culvert";
+import BoxCulvert from "./box-culvert";
 
-describe("Rectangular Culvert", () => {
+describe("Box Culvert", () => {
   const data = [
-    new RectangularCulvert(0.9, 0.9, 1.0, 0.15, 0.05, 1, 0.225),
-    new RectangularCulvert(0.9, 0.9, 1.0, 0.15, 0.05, 3, 0.225),
+    new BoxCulvert(0.9, 0.9, 1.0, 0.15, 0.05, 1, 0.225),
+    new BoxCulvert(0.9, 0.9, 1.0, 0.15, 0.05, 3, 0.225),
   ];
 
   it.each(
