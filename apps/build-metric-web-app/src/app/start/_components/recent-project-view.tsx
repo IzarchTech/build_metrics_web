@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Tooltip } from "@radix-ui/react-tooltip";
 
-function DeleteProjectButton({ id }: { id: string }) {
+function DeleteProjectButton({ id }: Readonly<{ id: string }>) {
   const [isLoading, setIsLoading] = useState(false);
   const handleRemoveProject = async (id: string) => {
     try {
@@ -79,7 +79,7 @@ function RecentProjectView() {
       </div>
 
       {projects && (
-        <div className="w-full divide-y max-h-[300px] overflow-y-auto">
+        <div className="w-full divide-y h-[300px] overflow-y-auto">
           {projects.map((project) => (
             <div
               className="w-full flex items-center justify-between"
@@ -108,6 +108,7 @@ function RecentProjectView() {
               <DeleteProjectButton id={project.id} />
             </div>
           ))}
+          <div className="flex-1" />
         </div>
       )}
     </div>

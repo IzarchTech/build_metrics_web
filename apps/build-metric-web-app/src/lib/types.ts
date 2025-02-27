@@ -5,3 +5,12 @@ export type Project = {
   createdAt: Date;
   updatedAt: Date;
 };
+
+export type BeamEntity = {
+  id: string;
+  projectId: string;
+  name: string | null;
+  type: "rectangular";
+  parameters: string;
+  quantity: number;
+};
