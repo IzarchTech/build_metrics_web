@@ -52,7 +52,7 @@ function NewProjectButton() {
     <MenuButton
       text="New"
       onClick={createNewProject}
-      render={() => (
+      renderIcon={() => (
         <File className="size-6 group-hover:fill-[#E2E2E2] group-hover:dark:fill-yellow-200 group-hover:dark:stroke-yellow-200 group-hover:stroke-[#E2E2E2] transition-all duration-300 ease-linear delay-150" />
       )}
       disabled={isLoading}
