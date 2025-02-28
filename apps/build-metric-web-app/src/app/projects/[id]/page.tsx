@@ -7,10 +7,10 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { ArrowLeft, Loader, Plus, SearchX } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import ElementMenu from "./_components/element-menu";
 import { useState } from "react";
 import { Project } from "@/lib/types";
 import ProjectHeader from "./_components/project-header";
+import RectangularBeamForm from "./_components/rectangular-beam-form";
 
 function ProjectPage() {
   const params = useParams();
@@ -60,8 +60,8 @@ function ProjectPage() {
   return (
     <div className="w-full h-full grid grid-rows-[auto_1fr] relative">
       <ProjectHeader project={project} setProject={setProject} />
-      <div className="container flex flex-col">
-        <ElementMenu />
+      <div className="flex flex-col overflow-y-auto">
+        <RectangularBeamForm projectId={project.id} />
       </div>
 
       <Button className="fixed bottom-12 right-10 p-0 size-12 bg-primary/80 text-primary-foreground flex items-center justify-center rounded-full shadow-lg hover:bg-primary/90 [&_svg]:size-6 group z-30">
