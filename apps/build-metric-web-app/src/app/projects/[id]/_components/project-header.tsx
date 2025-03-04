@@ -1,10 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import db from "@/lib/db";
-import { Project } from "@/lib/types";
-import { ArrowLeft } from "lucide-react";
+import { ProjectEntity } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { ArrowLeft, Cog, Printer, Trash } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   useRef,
@@ -19,8 +21,8 @@ function ProjectHeader({
   setProject,
   project,
 }: Readonly<{
-  project: Project;
-  setProject: Dispatch<SetStateAction<Project | undefined>>;
+  project: ProjectEntity;
+  setProject: Dispatch<SetStateAction<ProjectEntity | undefined>>;
 }>) {
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -66,14 +68,14 @@ function ProjectHeader({
     };
   }, []);
   return (
-    <div className="w-full p-6 flex gap-2 border-b">
+    <div className="w-full p-4 md:p-6 flex gap-2 border-b">
       <Button
         variant="ghost"
         aria-label="Go back"
         className="hover:outline outline-primary/90 hover:bg-primary/90 hover:text-primary-foreground ease-in-out duration-300 transition-all group"
         onClick={() => router.push("/start")}
       >
-        <ArrowLeft className="size-6 -rotate-90 group-hover:rotate-0 ease-linear duration-300 delay-75 transition-transform" />
+        <ArrowLeft className="size-6 group-hover:rotate-90 ease-linear duration-300 delay-75 transition-transform" />
         <span className="sr-only">Go back</span>
       </Button>
       <div className="flex-1">
@@ -85,6 +87,24 @@ function ProjectHeader({
         />
         <span className="sr-only">{project.name}</span>
       </div>
+      <Link
+        href={`${project.id}/settings`}
+        className={cn(
+          buttonVariants({ variant: "outline", size: "icon" }),
+          "group",
+        )}
+      >
+        <Cog className="group-hover:animate-spin" />
+        <span className="sr-only">Settings</span>
+      </Link>
+      <Button variant="outline" size="icon" disabled>
+        <Printer />
+        <span className="sr-only">Print</span>
+      </Button>
+      <Button variant="destructive" size="icon">
+        <Trash />
+        <span className="sr-only">Delete</span>
+      </Button>
     </div>
   );
 }

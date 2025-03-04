@@ -1,4 +1,4 @@
-export type Project = {
+export type ProjectEntity = {
   id: string;
   name: string;
   description: string | null;

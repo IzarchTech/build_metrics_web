@@ -1,8 +1,8 @@
 import Dexie, { type EntityTable } from "dexie";
-import { Project, BeamEntity } from "./types";
+import { ProjectEntity, BeamEntity } from "./types";
 
 const db = new Dexie("build-metric-web-app-db") as Dexie & {
-  projects: EntityTable<Project, "id">;
+  projects: EntityTable<ProjectEntity, "id">;
   beams: EntityTable<BeamEntity, "id">;
 };
 

@@ -31,14 +31,18 @@ function RectangularBeamForm({ projectId }: Readonly<{ projectId: string }>) {
     },
   });
 
-  const handleFormSubmit = form.handleSubmit(({ width, depth, span }) => {
-    db.beams.add({
+  const handleFormSubmit = form.handleSubmit(async ({ width, depth, span }) => {
+    await db.beams.add({
       parameters: JSON.stringify([width, depth, span]),
       name: `BM ${width}x${depth}x${span}`,
       projectId,
       quantity: 1,
       type: "rectangular",
       id: uuid(),
+    });
+
+    await db.projects.update(projectId, {
+      updatedAt: new Date(),
     });
   });
 
