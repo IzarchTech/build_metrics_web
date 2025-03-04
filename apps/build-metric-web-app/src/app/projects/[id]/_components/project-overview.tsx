@@ -55,6 +55,16 @@ function ProjectSummaryDetail({
   );
 }
 
+function ProjectDescription({
+  description,
+}: Readonly<{ description: string | null }>) {
+  if (!description || description.length === 0) {
+    return "-";
+  }
+
+  return <span className="text-sm">{description}</span>;
+}
+
 function ProjectSummaryDetails({
   project,
 }: Readonly<{ project: ProjectEntity }>) {
@@ -72,7 +82,7 @@ function ProjectSummaryDetails({
     <div className="w-full grid grid-cols-2 grid-rows-2 border-y bg-secondary text-secondary-foreground divide-y divide-x select-none">
       <ProjectSummaryDetail
         title="Project Description"
-        value={project.description ?? "-"}
+        value={<ProjectDescription description={project.description} />}
       />
       <ProjectSummaryDetail
         title="Date modified"
