@@ -12,12 +12,20 @@ import { ProjectEntity } from "@/lib/types";
 import ProjectHeader from "./_components/project-header";
 import ProjectOverview from "./_components/project-overview";
 
+/**
+ * The ProjectPage component displays the page for a single project.
+ * It fetches the project with the given ID from the database and displays the
+ * project details. If the project is not found, it displays a 404 page.
+ *
+ * @returns The project page component.
+ */
 function ProjectPage() {
   const params = useParams();
   const { id } = params;
   const [project, setProject] = useState<ProjectEntity>();
   const [isLoading, setIsLoading] = useState(true);
 
+  // Fetch the project from the database
   useLiveQuery(
     () =>
       db.projects
@@ -28,6 +36,7 @@ function ProjectPage() {
     [id],
   );
 
+  // If the project is loading, display a loading animation
   if (isLoading)
     return (
       <div className="container flex mx-auto h-full items-center justify-center">
@@ -35,6 +44,7 @@ function ProjectPage() {
       </div>
     );
 
+  // If the project is not found, display a 404 page
   if (project == undefined) {
     return (
       <div className="container flex mx-auto h-full items-center justify-center p-4">
@@ -57,6 +67,7 @@ function ProjectPage() {
     );
   }
 
+  // If the project is found, display the project details
   return (
     <div className="w-full h-full grid grid-rows-[auto_1fr]">
       <ProjectHeader project={project} setProject={setProject} />

@@ -8,21 +8,24 @@ import MenuButton from "@/components/ui/menu-button";
 import { File } from "lucide-react";
 
 /**
- * New project button
+ * The NewProjectButton component renders a button that, when clicked,
+ * creates a new project and navigates to that project's page.
  */
 function NewProjectButton() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // State to indicate if the project is being created
 
-  const router = useRouter();
+  const router = useRouter(); // Hook for navigation
 
   /**
-   * Creates a new project and navigates to it.
+   * Asynchronously creates a new project in the database and navigates to its page.
    */
   const createNewProject = async () => {
     setIsLoading(true);
     try {
-      // Create a new project with a unique id
+      // Record the current time for timestamps
       const createTime = new Date();
+
+      // Create a new project with a unique ID and current timestamps
       const id = await db.projects.add({
         id: uuid(),
         name: `Untitled Project ${createTime.toLocaleString(undefined, {
@@ -36,15 +39,15 @@ function NewProjectButton() {
         })}`.replaceAll("/", "-"),
         createdAt: createTime,
         updatedAt: createTime,
-        description: null,
+        description: null, // Initial description is null
       });
 
-      // Navigate to the new project
+      // Navigate to the newly created project page
       router.push(`/projects/${id}`);
     } catch (e) {
-      console.error(e);
+      console.error(e); // Log any errors that occur
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // Reset loading state
     }
   };
 
