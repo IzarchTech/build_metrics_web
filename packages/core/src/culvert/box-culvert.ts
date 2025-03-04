@@ -4,9 +4,9 @@ import Excavation from "@/interfaces/excavation";
 import Formwork from "@/interfaces/formwork";
 
 /**
- * Rectangular culvert
+ * Box culvert
  */
-class RectangularCulvert implements Excavation, Blinding, Formwork, Concrete {
+class BoxCulvert implements Excavation, Blinding, Formwork, Concrete {
   /**
    * Width of the cell
    */
@@ -130,7 +130,8 @@ class RectangularCulvert implements Excavation, Blinding, Formwork, Concrete {
    * @inheritdoc
    */
   getAreaofFormwork(): number {
-    const innerFace = (2 * this.depth + this.width) * this.span;
+    const innerFace =
+      (2 * this.depth + this.width) * this.span * this.noOfCells;
     const externalFace = 2 * this.culvertDepth * this.span;
     const fluidFlowFace =
       2 * (this.getAreaOfFluidFlowFace() - this.getAreaOfHollowSection());
@@ -169,4 +170,4 @@ class RectangularCulvert implements Excavation, Blinding, Formwork, Concrete {
   //#endregion
 }
 
-export default RectangularCulvert;
+export default BoxCulvert;
