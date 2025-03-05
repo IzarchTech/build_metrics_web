@@ -25,7 +25,9 @@ export function ProjectSummaryDetail({
 }>) {
   return (
     <div className="p-4 flex flex-col gap-2">
-      <span className="font-black text-[10px] uppercase">{title}</span>
+      <span className="font-bold text-secondary-foreground/70 text-[10px] uppercase font-heading">
+        {title}
+      </span>
       <p className="text-lg select-text">{value}</p>
     </div>
   );

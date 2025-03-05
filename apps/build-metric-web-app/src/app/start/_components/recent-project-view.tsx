@@ -26,11 +26,11 @@ function DeleteProjectButton({ id }: Readonly<{ id: string }>): JSX.Element {
   const handleRemoveProject = (id: string) => {
     setIsLoading(true);
     // Delete the project from the database
-    db.projects
-      .delete(id)
-      .catch((e) => {
-        console.error(e);
-      })
+    db.transaction("rw", db.projects, db.beams, async () => {
+      await db.beams.where("projectId").equals(id).delete();
+      await db.projects.delete(id);
+    })
+      .catch((e) => console.error(e))
       .finally(() => {
         setIsLoading(false);
       });

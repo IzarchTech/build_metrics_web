@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Jura } from "next/font/google";
+import { Jura, Quicksand } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -20,6 +20,13 @@ const bodyFont = Jura({
   weight: ["300", "500", "700"],
 });
 
+const headingFont = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-heading",
+  weight: ["400", "700"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,8 +36,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "antialiased h-screen bg-background text-foreground",
+          "antialiased h-screen bg-background text-foreground dark",
           bodyFont.variable,
+          headingFont.variable,
         )}
       >
         <ThemeProvider

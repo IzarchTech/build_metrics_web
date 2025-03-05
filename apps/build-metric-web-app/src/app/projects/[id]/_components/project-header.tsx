@@ -98,6 +98,7 @@ function ProjectHeader({
         <Input
           className="font-semibold text-lg border-none shadow-none"
           value={project.name}
+          id="projectName"
           onChange={handleProjectNameChange}
           placeholder="Project Name"
         />
