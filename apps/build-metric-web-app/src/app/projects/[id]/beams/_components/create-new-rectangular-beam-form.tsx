@@ -21,36 +21,45 @@ import { v7 as uuid } from "uuid";
 import Image from "next/image";
 import rectangularBeamImg from "@/assets/rectangular-beam.png";
 
-function RectangularBeamForm({ projectId }: Readonly<{ projectId: string }>) {
+function CreateNewRectangularBeamForm({
+  projectId,
+}: Readonly<{ projectId: string }>) {
   const form = useForm<z.infer<typeof rectangularBeamFormSchema>>({
     resolver: zodResolver(rectangularBeamFormSchema),
     defaultValues: {
-      width: 0,
-      depth: 0,
-      span: 0,
+      width: 0.0,
+      depth: 0.0,
+      span: 0.0,
+      quantity: 1,
     },
   });
 
-  const handleFormSubmit = form.handleSubmit(async ({ width, depth, span }) => {
-    await db.beams.add({
-      parameters: JSON.stringify([width, depth, span]),
-      name: `BM ${width}x${depth}x${span}`,
-      projectId,
-      quantity: 1,
-      type: "rectangular",
-      id: uuid(),
-    });
+  const handleFormSubmit = form.handleSubmit(
+    async ({ width, depth, span, quantity }) => {
+      await db.beams.add({
+        parameters: JSON.stringify([width, depth, span]),
+        name: `BM ${width}x${depth}x${span}`,
+        projectId,
+        quantity,
+        type: "rectangular",
+        id: uuid(),
+      });
 
-    await db.projects.update(projectId, {
-      updatedAt: new Date(),
-    });
-  });
+      await db.projects.update(projectId, {
+        updatedAt: new Date(),
+      });
+    },
+  );
 
   return (
     <div className="w-full flex flex-col gap-2 px-4 py-6 md:max-w-md bg-card m-auto">
-      <h2 className="text-center select-none">Concrete Beam</h2>
-      <div className="w-full h-56 relative my-4">
-        <Image src={rectangularBeamImg} alt="Rectangular Beam" fill />
+      <div className="w-full h-56 md:h-72 relative my-4 dark:bg-slate-50/85 rounded-lg">
+        <Image
+          src={rectangularBeamImg}
+          alt="Rectangular Beam"
+          className="p-6"
+          fill
+        />
       </div>
       <Form {...form}>
         <form
@@ -122,6 +131,26 @@ function RectangularBeamForm({ projectId }: Readonly<{ projectId: string }>) {
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name="quantity"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Quantity</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    step={1}
+                    {...field}
+                    onChange={(e) =>
+                      form.setValue("quantity", Number(e.target.value))
+                    }
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <div className="flex gap-2">
             <Button type="submit" className=" flex-1">
@@ -144,4 +173,4 @@ function RectangularBeamForm({ projectId }: Readonly<{ projectId: string }>) {
   );
 }
 
-export default RectangularBeamForm;
+export default CreateNewRectangularBeamForm;

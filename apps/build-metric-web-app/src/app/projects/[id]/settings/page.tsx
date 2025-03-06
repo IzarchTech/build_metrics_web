@@ -1,13 +1,11 @@
 "use client";
 
-import db from "@/lib/db";
-import { ProjectEntity } from "@/lib/types";
-import { useLiveQuery } from "dexie-react-hooks";
 import { Loader } from "lucide-react";
 import { notFound, useParams } from "next/navigation";
-import { useState } from "react";
 import ProjectSettingsHeader from "./_components/project-settings-header";
 import UpdateProjectForm from "./_components/update-project-form";
+import { useProduct } from "@/app/projects/_hooks/project.hook";
+import { Fragment } from "react";
 
 /**
  * The ProjectSettingsPage component displays the settings for a project.
@@ -18,29 +16,14 @@ import UpdateProjectForm from "./_components/update-project-form";
  * @returns The project settings page component.
  */
 function ProjectSettingsPage() {
-  const params = useParams();
+  const params = useParams<{ id: string }>();
   const { id } = params;
-
-  // The state of the project
-  const [project, setProject] = useState<ProjectEntity>();
-  // The loading state
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Fetch the project from the database
-  useLiveQuery(
-    () =>
-      db.projects
-        .get(id as string)
-        .then((p) => setProject(p))
-        .catch((e) => console.error(e))
-        .finally(() => setIsLoading(false)),
-    [id],
-  );
+  const { project, isLoading } = useProduct(id);
 
   // If the project is loading, display a loading animation
   if (isLoading)
     return (
-      <div className="container flex mx-auto h-full items-center justify-center">
+      <div className="container flex mx-auto h-full items-center justify-center row-start-2">
         <Loader className="animate-spin size-12" />
       </div>
     );
@@ -52,12 +35,12 @@ function ProjectSettingsPage() {
 
   // Display the project settings
   return (
-    <div className="w-full h-full grid grid-rows-[auto_1fr]">
+    <Fragment>
       <ProjectSettingsHeader project={project} />
       <div className="flex px-4">
         <UpdateProjectForm project={project} />
       </div>
-    </div>
+    </Fragment>
   );
 }
 
