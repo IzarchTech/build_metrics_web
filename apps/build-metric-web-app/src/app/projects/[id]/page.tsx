@@ -6,6 +6,7 @@ import ProjectHeader from "./_components/project-header";
 import ProjectOverview from "./_components/project-overview";
 import { useProduct } from "@/app/projects/_hooks/project.hook";
 import { Fragment } from "react";
+import ElementMenu from "./_components/element-menu";
 
 /**
  * The ProjectPage component displays the page for a single project.
@@ -38,6 +39,7 @@ function ProjectPage() {
       <ProjectHeader project={project} setProject={setProject} />
       <div className="flex flex-col overflow-y-auto">
         <ProjectOverview project={project} />
+        <ElementMenu projectId={project.id} />
       </div>
     </Fragment>
   );
